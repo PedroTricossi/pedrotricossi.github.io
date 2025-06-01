@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lea Kaufman Fotografie</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .hero-bg {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 50%, rgba(107, 114, 128, 0.8) 50%), url("image-placeholder.png");
+      background-size: cover;
+      background-position: center;
+    }
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 50%, rgba(107, 114, 128, 0.8) 50%), url("image-placeholder.png");
+      }
+    }
+    .language-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    .language-toggle span {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 20px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked+.slider {
+      background-color: #4897ec;
+    }
+    input:checked+.slider:before {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 shadow-md z-50">
+<div class="container mx-auto px-6 py-3 flex justify-between items-center">
+<a class="text-2xl font-bold text-gray-800" href="#">
+        by <span class="text-blue-500">LEA KAUFMAN</span>
+</a>
+<div class="hidden md:flex space-x-4 items-center">
+<a class="text-gray-600 hover:text-blue-500" data-lang-de="MEINE LEISTUNGEN" data-lang-en="MY SERVICES" href="#leistungen">MEINE LEISTUNGEN</a>
+<a class="text-gray-600 hover:text-blue-500" data-lang-de="PORTFOLIO" data-lang-en="PORTFOLIO" href="#portfolio">PORTFOLIO</a>
+<a class="text-gray-600 hover:text-blue-500" data-lang-de="ABOUT ME" data-lang-en="ABOUT ME" href="#about">ABOUT ME</a>
+<a class="text-gray-600 hover:text-blue-500" data-lang-de="FAQ" data-lang-en="FAQ" href="#faq">FAQ</a>
+<a class="text-gray-600 hover:text-blue-500" data-lang-de="KONTAKT" data-lang-en="CONTACT" href="#kontakt">KONTAKT</a>
+<div class="language-toggle ml-4">
+<span class="text-gray-600" data-lang-de="DE" data-lang-en="DE">DE</span>
+<label class="toggle-switch">
+<input id="language-toggle-checkbox" type="checkbox"/>
+<span class="slider"></span>
+</label>
+<span class="text-blue-500" data-lang-de="EN" data-lang-en="EN">EN</span>
+</div>
+</div>
+<div class="md:hidden flex items-center">
+<div class="language-toggle mr-4">
+<span class="text-gray-600 text-sm" data-lang-de="DE" data-lang-en="DE">DE</span>
+<label class="toggle-switch">
+<input id="language-toggle-checkbox-mobile" type="checkbox"/>
+<span class="slider"></span>
+</label>
+<span class="text-blue-500 text-sm" data-lang-de="EN" data-lang-en="EN">EN</span>
+</div>
+<button class="text-gray-800 focus:outline-none" id="mobile-menu-button">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</div>
+<div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+<a class="block px-6 py-3 text-gray-600 hover:bg-blue-500 hover:text-white" data-lang-de="MEINE LEISTUNGEN" data-lang-en="MY SERVICES" href="#leistungen">MEINE LEISTUNGEN</a>
+<a class="block px-6 py-3 text-gray-600 hover:bg-blue-500 hover:text-white" data-lang-de="PORTFOLIO" data-lang-en="PORTFOLIO" href="#portfolio">PORTFOLIO</a>
+<a class="block px-6 py-3 text-gray-600 hover:bg-blue-500 hover:text-white" data-lang-de="ABOUT ME" data-lang-en="ABOUT ME" href="#about">ABOUT ME</a>
+<a class="block px-6 py-3 text-gray-600 hover:bg-blue-500 hover:text-white" data-lang-de="FAQ" data-lang-en="FAQ" href="#faq">FAQ</a>
+<a class="block px-6 py-3 text-gray-600 hover:bg-blue-500 hover:text-white" data-lang-de="KONTAKT" data-lang-en="CONTACT" href="#kontakt">KONTAKT</a>
+</div>
+</nav>
+<header class="hero-bg min-h-screen flex items-center pt-8 md:pt-0">
+<div class="container mx-auto px-6 grid md:grid-cols-2 items-center">
+    <img alt="Lea Kaufman, Hobbyfotografin" class="w-full h-auto object-cover rounded-lg " src="./assets/landscape.jpg"/>
+<div class="text-white md:pl-12 py-12 md:py-0">
+<p class="text-lg mb-2" data-lang-de="in St. Gallen und umgebung" data-lang-en="in St. Gallen and surroundings">in St. Gallen und umgebung</p>
+<h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" data-lang-de="Branding Fotografie für Marken mit Persönlichkeit" data-lang-en="Branding Photography for Brands with Personality">Branding Fotografie für Marken mit Persönlichkeit</h1>
+<div class="space-y-3 mb-8 text-lg">
+<p class="flex items-start"><span class="text-blue-400 font-bold mr-2">by</span> <span data-lang-de="Für Selbständige, Coaches, kreative Dienstleister &amp; Unternehmen" data-lang-en="For freelancers, coaches, creative service providers &amp; companies">Für Selbständige, Coaches, kreative Dienstleister &amp; Unternehmen</span></p>
+<p class="flex items-start"><span class="text-blue-400 font-bold mr-2">by</span> <span data-lang-de="Branding Fotos &amp; Videos für deinen professionellen Außenauftritt" data-lang-en="Branding photos &amp; videos for your professional public image">Branding Fotos &amp; Videos für deinen professionellen Außenauftritt</span></p>
+<p class="flex items-start"><span class="text-blue-400 font-bold mr-2">by</span> <span data-lang-de="Sichtbar werden, Wunschkunden und passende Bewerber anziehen" data-lang-en="Become visible, attract desired customers and suitable applicants">Sichtbar werden, Wunschkunden und passende Bewerber anziehen</span></p>
+</div>
+<a class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg shadow-md transition duration-300" data-lang-de="Kostenlosen Kennenlerncall buchen" data-lang-en="Book a free get-to-know-you call" href="#kennenlernen">
+          Kostenlosen Kennenlerncall buchen
+        </a>
+</div>
+</div>
+</header>
+<section class="py-16 bg-white" id="about">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-2 text-gray-800" data-lang-de="Hoi, ich bin d’Lea!" data-lang-en="Hi, I'm Maria">Hoi, ich bin d’Lea!</h2>
+<p class="text-blue-500 text-center text-lg mb-12" data-lang-de="Hobbyfotografin aus St. Gallen" data-lang-en="Your photographer for authentic branding">Hobbyfotografin aus St. Gallen</p>
+<div class="flex flex-col md:flex-row items-center md:space-x-12">
+<div class="md:w-1/2 mb-2 md:mb-0">
+<img alt="Portrait von Lea Kaufman" class="rounded-lg shadow-xl w-full h-auto object-cover" src="./assets/Lea.jpg"/>
+</div>
+<div class="md:w-2/3 text-gray-700 space-y-4 text-lg">
+<p data-lang-de="Seit über zehn Jahren betrachte ich die Welt immer wieder durch meine Linse. Vor einigen Jahrenhabe ich begonnen, erste Fotoshootings mit Freund*innen, Familienmitgliedern und Bekanntenumzusetzen." data-lang-en="I've been looking at the world through my lens for over ten years. A few years ago, I started doing my first photo shoots with friends, family members, and acquaintances.">Als professionelle Fotografin mit einer Leidenschaft für visuelles Storytelling helfe ich dir, deine einzigartige Markenpersönlichkeit sichtbar zu machen. Mein Ziel ist es, Bilder zu schaffen, die nicht nur ästhetisch ansprechend sind, sondern auch deine Werte und deine Botschaft authentisch transportieren.</p>
+<p data-lang-de="Ich liebe es, in der goldenen Stunde zu fotografieren, auf Pinterest nach neuen Ideen zu stöbernund dabei immer wieder neue Perspektiven auszuprobieren." data-lang-en="I love photographing during the golden hour, Browse Pinterest for new ideas, and always trying out new perspectives.">Ich glaube fest daran, dass starke Bilder eine tiefere Verbindung zu deiner Zielgruppe aufbauen und Vertrauen schaffen. Ob du Unternehmer, Coach oder kreativer Kopf bist – gemeinsam entwickeln wir eine Bildsprache, die deine Individualität unterstreicht und dich von der Masse abhebt.</p>
+<p data-lang-de="Meine Fujifilm-Kamera (X-T4) liefert lebendige Farben – deshalb setze ich auf eine schlichtgehaltene Bildbearbeitung. Manchmal reizt es mich jedoch, mit Schwarz-Weiss-Kontrasten zuspielen, um den Blick aufs Wesentliche zu lenken oder besondere Formen undLichtstimmungen hervorzuheben." data-lang-en="My Fujifilm camera (X-T4) delivers vibrant colors, so I focus on minimal image editing. However, sometimes I'm drawn to playing with black and white contrasts to direct the viewer's eye to the essentials or to emphasize unique shapes and lighting moods.">Mit Sitz in München arbeite ich deutschlandweit und freue mich darauf, deine Geschichte in Bildern zu erzählen.</p>
+<p data-lang-de="Ob alleine, mit Partner*in, Freund*innen oder Familie – hast auch du Lust auf ein Fotoshootingmit mir? Dann wirf gerne einen Blick in meine Galerie!" data-lang-en="Alone, with your partner, friends, or family – are you also interested in a photo shoot with me? Then feel free to take a look at my gallery!">Mit Sitz in München arbeite ich deutschlandweit und freue mich darauf, deine Geschichte in Bildern zu erzählen.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-gray-50" id="portfolio">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800" data-lang-de="Portfolio" data-lang-en="Portfolio">Portfolio</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+<img alt="Portfolio Bild: Paar Fotos" class="w-full h-64 object-cover" src="./assets/couple.jpg"/>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-800" data-lang-de="Paar Fotos" data-lang-en="Couple Photos">Paar Fotos</h3>
+<p class="text-gray-600 text-sm" data-lang-de="Emotionale Momente zweier Menschen festgehalten." data-lang-en="Emotional moments of two people captured.">Emotionale Momente zweier Menschen festgehalten.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+<img alt="Portfolio Bild: Familienfotos" class="w-full h-64 object-cover" src="./assets/familie.jpg"/>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-800" data-lang-de="Familienfotos" data-lang-en="Family Photos">Familienfotos</h3>
+<p class="text-gray-600 text-sm" data-lang-de="Unvergessliche Erinnerungen für die ganze Familie." data-lang-en="Unforgettable memories for the whole family.">Unvergessliche Erinnerungen für die ganze Familie.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+<img alt="Portfolio Bild: Landschaftsfotografie" class="w-full h-64 object-cover" src="./assets/landscape_2.jpg"/>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-800" data-lang-de="Landschaft" data-lang-en="Landscape">Landschaft</h3>
+<p class="text-gray-600 text-sm" data-lang-de="Atemberaubende Natur und beeindruckende Szenerien." data-lang-en="Breathtaking nature and impressive sceneries.">Atemberaubende Natur und beeindruckende Szenerien.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+<img alt="Portfolio Bild: Einzelportraits" class="w-full h-64 object-cover" src="./assets/single.jpg"/>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-2 text-gray-800" data-lang-de="Einzelportraits" data-lang-en="Single Portraits">Einzelportraits</h3>
+<p class="text-gray-600 text-sm" data-lang-de="Individuelle Portraits, die Persönlichkeit zeigen." data-lang-en="Individual portraits that show personality.">Individuelle Portraits, die Persönlichkeit zeigen.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-white" id="leistungen">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800" data-lang-de="Meine Leistungen" data-lang-en="My Services">Meine Leistungen</h2>
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div class="space-y-6 text-gray-700 text-lg">
+<div>
+<h3 class="text-2xl font-semibold text-blue-500 mb-2 flex items-center">
+<span class="material-icons mr-2">camera_alt</span><span data-lang-de="Meine Photoshoots" data-lang-en="My Photoshoots">Branding Fotoshootings</span>
+</h3>
+<p data-lang-de="Gibt’s einen besonderen Anlass – oder einfach Lust auf schöne Bilder?Ob Geburtstag, Verlobung, Paarfotos, Familienmoment, Freundschaftsshooting oder einfachjust for fun: Jeder Grund ist ein guter Grund für ein Fotoshooting. Hauptsache, du hast Lust aufnatürliche, authentische Bilder." data-lang-en="Is there a special occasion—or do you just fancy some beautiful pictures? Whether it's a birthday, engagement, couple photos, a family moment, a friendship shoot, or just for fun: any reason is a good reason for a photoshoot. The main thing is that you're up for natural, authentic pictures.">Individuell konzipierte Fotoshootings, die deine Marke und Persönlichkeit authentisch widerspiegeln. Wir entwickeln gemeinsam ein Konzept, das perfekt zu dir und deinem Business passt.</p>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-blue-500 mb-2 flex items-center">
+<span class="material-icons mr-2">forest</span><span data-lang-de="Natürlich & persönlich" data-lang-en="Natural & Personal">Branding Videos</span>
+</h3>
+<p data-lang-de="Ich fotografiere draussen – im Park, in der Stadt, auf dem Feld oder an deinem Lieblingsort.Ein Fotostudio besitze ich nicht, lieber nutze ich das natürliche Licht. Die Location ist also freiwählbar, hast du einen Wunsch oder soll ich dir etwas vorschlagen?" data-lang-en="I don't have a photo studio; I prefer to use natural light. So the location is flexible! Do you have a specific place in mind, or would you like me to suggest some options?">Kurze, prägnante Videos, die deine Botschaft emotional transportieren und deine Zielgruppe begeistern. Ideal für Webseiten, Social Media und Präsentationen.</p>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-blue-500 mb-2 flex items-center">
+<span class="material-icons mr-2">payments</span><span data-lang-de="Kosten" data-lang-en="Price">Konzeptentwicklung &amp; Beratung</span>
+</h3>
+<p data-lang-de="2-Stunden-Shooting an einer Location deiner Wahl – ob alleine, zu zweit oder als Gruppe. Duerhältst rund 200 hochauflösende Bilder (JPG) – mit natürlicher Bearbeitung, ohne Filter.Preisempfehlung: CHF 250.– (inkl. Vorbereitung, Shooting & Nachbearbeitung)Je nach Location bin ich froh über die Übernahme der ÖV-Kosten.Der Preis ist eine Orientierung – wenn dein Budget etwas anders aussieht, melde dich trotzdemgerne. Mir ist wichtig, dass schöne Bilder nicht am Preis scheitern – wir finden bestimmt eineLösung" data-lang-en="A 2-hour photoshoot at a location of your choice—whether solo, as a couple, or with a group. You'll receive around 200 high-resolution images (JPG) with natural editing, no filters.
+
+Recommended Price: CHF 250 (includes preparation, shooting, & post-processing)
+
+Depending on the location, I'd appreciate it if you could cover the public transportation costs.
+
+This price is a guideline. If your budget looks a little different, please still reach out! It's important to me that beautiful pictures aren't out of reach because of the price—I'm sure we can find a solution.">Ich unterstütze dich nicht nur bei der Umsetzung, sondern auch bei der Ideenfindung und strategischen Planung deiner visuellen Kommunikation.</p>
+</div>
+</div>
+<div class="mt-8 md:mt-0">
+<img alt="Fotografin Maria bei der Arbeit" class="rounded-lg shadow-xl w-full h-auto object-cover" src="./assets/naomi.jpg"/>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-blue-500 text-white" id="kontakt">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-6" data-lang-de="Interesse geweckt?" data-lang-en="Interested?">Interesse geweckt?</h2>
+<p class="text-xl mb-8 max-w-2xl mx-auto" data-lang-de="Ich freue mich darauf, dich und dein Projekt kennenzulernen. Lass uns gemeinsam herausfinden, wie wir deine Marke zum Strahlen bringen können." data-lang-en="I look forward to getting to know you and your project. Let's find out together how we can make your brand shine.">Ich freue mich darauf, dich und dein Projekt kennenzulernen. Lass uns gemeinsam herausfinden, wie wir deine Marke zum Strahlen bringen können.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+<a class="bg-white text-blue-500 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-lg shadow-md transition duration-300 inline-flex items-center" href="mailto:hallo@mariaschinz.de">
+<span class="material-icons mr-2">email</span> <span data-lang-de="Email" data-lang-en="Email">Email</span>
+</a>
+<a class="bg-white text-blue-500 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-lg shadow-md transition duration-300 inline-flex items-center" href="https://www.instagram.com/leatakespictures?igsh=MTl2c2NqcmlieW5h" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-instagram mr-2"></i> <span data-lang-de="Instagram" data-lang-en="Instagram">Instagram</span>
+</a>
+<!-- <a class="bg-white text-blue-500 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-lg shadow-md transition duration-300 inline-flex items-center" href="https://wa.me/deine_whatsapp_nummer" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-whatsapp mr-2"></i> <span data-lang-de="WhatsApp" data-lang-en="WhatsApp">WhatsApp</span>
+</a> -->
+</div>
+</div>
+</section>
+<footer class="bg-gray-800 text-gray-400 py-12">
+<div class="container mx-auto px-6 text-center">
+<p data-lang-de="© 2025 by Pedro Tricossi. Alle Rechte vorbehalten." data-lang-en="© 2025 by Pedro Tricossi. All rights reserved.">© 2025 by Pedro Tricossi. Alle Rechte vorbehalten.</p>
+<div class="mt-4 space-x-4">
+<a class="hover:text-white" data-lang-de="Impressum" data-lang-en="Imprint" href="#">Impressum</a>
+<a class="hover:text-white" data-lang-de="Datenschutz" data-lang-en="Privacy Policy" href="#">Datenschutz</a>
+</div>
+</div>
+</footer>
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileMenu.classList.add('hidden');
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    const languageToggle = document.getElementById('language-toggle-checkbox');
+    const languageToggleMobile = document.getElementById('language-toggle-checkbox-mobile');
+    const htmlElement = document.documentElement;
+    const translatableElements = document.querySelectorAll('[data-lang-de]');
+    function updateTexts(language) {
+      htmlElement.lang = language;
+      translatableElements.forEach(el => {
+        el.textContent = el.dataset[`lang${language.charAt(0).toUpperCase() + language.slice(1)}`];
+      });
+    }
+    function setInitialLanguage() {
+      const preferredLang = localStorage.getItem('preferredLanguage') || 'de';
+      if (preferredLang === 'en') {
+        languageToggle.checked = true;
+        languageToggleMobile.checked = true;
+      }
+      updateTexts(preferredLang);
+    }
+    function handleToggleChange(event) {
+      const isChecked = event.target.checked;
+      const newLang = isChecked ? 'en' : 'de';
+      localStorage.setItem('preferredLanguage', newLang);
+      updateTexts(newLang);
+      if (event.target.id === 'language-toggle-checkbox') {
+        languageToggleMobile.checked = isChecked;
+      } else {
+        languageToggle.checked = isChecked;
+      }
+    }
+    languageToggle.addEventListener('change', handleToggleChange);
+    languageToggleMobile.addEventListener('change', handleToggleChange);
+    setInitialLanguage();
+  </script>
+
+</body></html>
